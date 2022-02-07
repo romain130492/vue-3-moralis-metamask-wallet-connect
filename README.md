@@ -21,7 +21,7 @@ VUE_APP_MORALIS_SERVER_URL=https://abc123.bigmoralis.com:2053/server
 
 ## Getting started
 ```
-git clone git@github.com:hypescale/moralis-vue-boilerplate.git
+git clone https://github.com/romain130492/vue-3-moralis-metamask-wallet-connect
 
 cd moralis-vue-boilerplate
 
@@ -37,3 +37,6 @@ yarn lint
 ```
 
 
+
+
+I took that template from [here](https://github.com/hypescale/moralis-vue-boilerplate) and added `wallet connect` to it. In order to make it work using mobiles.
