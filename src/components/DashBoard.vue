@@ -1,6 +1,7 @@
 <template>
   <div>{{user}}</div>
   <button v-if="!isAuthenticated" @click="logIn">logIn</button>
+    <button v-if="!isAuthenticated" @click="logInWalletConnect">logIn With Wallet Connect</button>
   <button v-if="isAuthenticated" @click="logOut">LogOut</button>
 </template>
 
@@ -20,6 +21,31 @@ onMounted(() => {
 
 const isAuthenticated = computed(() => user.value)
 
+const logInWalletConnect = async () =>{
+    if (!isAuthenticated.value) {
+    user.value = await Moralis.authenticate({ 
+      provider: "walletconnect", 
+      signingMessage: "Log in using Moralis && wallet Connect",
+      mobileLinks: [
+       /*  "rainbow", */
+        "metamask",
+     /*    "argent",
+        "trust",
+        "imtoken",
+        "pillar", */
+      ]
+     })
+      .then((user) => {
+        console.log("logged in user:", user);
+        console.log(user.get("ethAddress"));
+        return user
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  console.log("logged in user:", user.value);
+}
 const logIn = async () => {
   if (!isAuthenticated.value) {
     user.value = await Moralis.authenticate({ signingMessage: "Log in using Moralis" })
