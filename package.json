@@ -1,9 +1,8 @@
 {
-  "name": "moralis-vue-boilerplate",
+  "name": "moralis-vue-boilerplate-wallet-connect-metamask",
   "version": "0.1.0",
   "author": {
-    "name": "Martin Kogut",
-    "url": "https://hypescale.com"
+    "name": "Rouiller Romain"
   },
   "private": false,
   "scripts": {
